@@ -1,0 +1,83 @@
+/* ===== CÁC THIẾT LẬP CHUNG ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Header separator */
+.header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 107, 107, 0.5),
+        transparent
+    );
+}
+
+/* Main content wrapper */
+.main-content {
+    flex: 1;
+    padding: 80px 0 100px;
+    position: relative;
+}
+
+/* Footer separator */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 107, 107, 0.5),
+        transparent
+    );
+}
+
+/* Container chung */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 70px 0 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 60px 0 70px;
+    }
+} 

@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* === PHẦN HERO - BANNER CHÍNH === */
+.hero {
+  height: 100vh;
+  /* background-size: cover;
+  background-image: url("../Upload/bg-index.jpg");
+  background-repeat: no-repeat; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lớp phủ màu gradient */
+/* .hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 30% 40%,
+      rgba(255, 107, 107, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(107, 107, 255, 0.2) 0%,
+      transparent 50%
+    );
+  animation: breathe 6s ease-in-out infinite;
+} */
+
+/* Hiệu ứng thở của lớp phủ */
+/* @keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+} */
+
+/* Nội dung chính giữa trang */
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+/* Dòng chữ nhỏ phía trên */
+.hero-subtitle {
+  font-size: 14px;
+  letter-spacing: 8px;
+  color: #ff6b6b;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+/* Tiêu đề chính */
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 300;
+  letter-spacing: 15px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 1s forwards;
+  background: linear-gradient(45deg, #fff, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hiệu ứng xuất hiện từ dưới lên */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mô tả dưới tiêu đề */
+.hero-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 1.5s forwards;
+}
+
+/* Nút call-to-action */
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(45deg, #ff6b6b, #ff5252);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease 2s forwards;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+}
+
+/* === PHẦN RESPONSIVE - TƯƠNG THÍCH MOBILE === */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+  }
+
+  .hero-subtitle {
+    letter-spacing: 4px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .nav-container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+}
+
+/* === HIỆU ỨNG PARTICLES BAY === */
+/* .particle {
+  position: absolute;
+  background: rgba(255, 107, 107, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+} */

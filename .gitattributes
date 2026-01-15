@@ -1,0 +1,25 @@
+# Auto detect text files and normalize line endings to LF in the repository
+* text=auto
+
+# PHP files
+*.php text eol=lf
+
+# CSS files
+*.css text eol=lf
+
+# JavaScript files
+*.js text eol=lf
+
+# Images should be treated as binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.svg binary
+
+# Audio files should be treated as binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.m4a binary

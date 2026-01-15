@@ -1,0 +1,358 @@
+/* ===== CÁC THIẾT LẬP CHUNG ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: white;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+/* ===== PHẦN UPLOAD ===== */
+.trang-upload {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tieu-de {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    background: linear-gradient(45deg, #fff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Thông báo */
+.thong-bao {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: slideDown 0.3s ease;
+}
+
+.thong-bao.thanh_cong {
+    background: rgba(46, 213, 115, 0.1);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+}
+
+.thong-bao.loi {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: #ff4757;
+}
+
+.icon-thong-bao {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container chính */
+.container-upload {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Form upload */
+.form-upload {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tieu-de-form {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.nhom-input {
+    margin-bottom: 25px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.hop-file {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.input-file {
+    display: none;
+}
+
+.label-file {
+    padding: 12px 20px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    color: #ff6b6b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.label-file:hover {
+    background: rgba(255, 107, 107, 0.2);
+}
+
+.icon-upload {
+    width: 20px;
+    height: 20px;
+}
+
+.ten-file {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.ghi-chu {
+    display: block;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+.nhom-nut {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.nut {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.nut-upload {
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    color: white;
+    flex: 1;
+}
+
+.nut-upload:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.nut-reset {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nut-reset:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.icon-nut {
+    width: 20px;
+    height: 20px;
+}
+
+/* Preview */
+.preview {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s;
+}
+.preview:hover {
+    box-shadow: 0 16px 40px rgba(255, 107, 107, 0.15);
+}
+.hop-preview {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.anh-preview {
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.08);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.anh-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+.anh-preview img:hover {
+    transform: scale(1.05);
+}
+.thong-tin-preview {
+    text-align: center;
+}
+.ten-bai-preview {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.ten-ca-si-preview {
+    font-size: 1rem;
+    color: #ff6b6b;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.audio-preview {
+    margin-top: 20px;
+    text-align: center;
+}
+.player-preview {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    background: #16171d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container-upload {
+        grid-template-columns: 1fr;
+    }
+
+    .tieu-de {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+
+    .form-upload,
+    .preview {
+        padding: 20px;
+    }
+
+    .hop-preview {
+        padding: 12px;
+    }
+
+    .anh-preview {
+        max-width: 100%;
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .trang-upload {
+        padding: 15px;
+    }
+
+    .tieu-de {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    .nhom-nut {
+        flex-direction: column;
+    }
+
+    .nut {
+        width: 100%;
+    }
+
+    .preview {
+        padding: 15px;
+    }
+
+    .hop-preview {
+        padding: 8px;
+    }
+
+    .anh-preview {
+        height: 100px;
+        font-size: 32px;
+    }
+
+    .ten-bai-preview {
+        font-size: 1rem;
+    }
+
+    .ten-ca-si-preview {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,274 @@
+/* ===== CÁC THIẾT LẬP CHUNG ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: white;
+    min-height: 100vh;
+}
+
+/* ===== PHẦN LOGIN/REGISTER ===== */
+.trang-dang-nhap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng nền */
+.trang-dang-nhap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(107, 107, 255, 0.1) 0%, transparent 50%);
+    animation: gradientMove 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.khung-dang-nhap {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tieu-de {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tieu-de h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #fff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tieu-de p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.nhom-input {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.input:invalid:not(:placeholder-shown) {
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+.input:invalid:not(:placeholder-shown) + .input-hint {
+    color: #ff4757;
+}
+
+.input-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.nut {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nut:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.nut:active {
+    transform: translateY(0);
+}
+
+.lien-ket {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.lien-ket a {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.lien-ket a:hover {
+    color: #ff4757;
+    text-decoration: underline;
+}
+
+.nut-chuyen {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 20px;
+    color: #ff6b6b;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.nut-chuyen:hover {
+    background: rgba(255, 107, 107, 0.2);
+    transform: translateX(5px);
+    text-decoration: none;
+    color: #ff6b6b;
+}
+
+.nut-chuyen i {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.nut-chuyen:hover i {
+    transform: translateX(3px);
+}
+
+/* Thông báo lỗi */
+.thong-bao {
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.3s ease;
+}
+
+.thong-bao.loi {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: #ff4757;
+}
+
+.thong-bao.thanh-cong {
+    background: rgba(46, 213, 115, 0.1);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .khung-dang-nhap {
+        padding: 30px 20px;
+    }
+
+    .tieu-de h1 {
+        font-size: 1.8rem;
+    }
+
+    .input {
+        padding: 10px 12px;
+    }
+
+    .nut {
+        padding: 10px;
+    }
+
+    .input-hint {
+        font-size: 0.75rem;
+    }
+} 

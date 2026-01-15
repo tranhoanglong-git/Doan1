@@ -1,0 +1,674 @@
+/* ===== CÁC THIẾT LẬP CHUNG ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding-top: 80px; /* Khoảng cách cho header cố định */
+    padding-bottom: 100px; /* Khoảng cách cho footer */
+}
+
+.khung-chinh {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== PHẦN DANH SÁCH BÀI HÁT ===== */
+.danh-sach-bai-hat {
+    margin-bottom: 100px;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Hiệu ứng gradient nền */
+.danh-sach-bai-hat::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 30% 40%,
+        rgba(255, 107, 107, 0.1) 0%,
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at 70% 60%,
+        rgba(107, 107, 255, 0.1) 0%,
+        transparent 50%
+    );
+    animation: hieu-ung-tho 6s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* Hiệu ứng thở của gradient */
+@keyframes hieu-ung-tho {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.danh-sach-bai-hat h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    background: linear-gradient(45deg, #fff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: hieu-ung-xuat-hien 1s ease forwards;
+    padding-top: 20px;
+}
+
+/* Lưới hiển thị bài hát */
+.luoi-bai-hat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+    margin-bottom: 50px;
+}
+
+/* Thẻ bài hát */
+.the-bai-hat {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: hieu-ung-xuat-hien 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Hiệu ứng xuất hiện tuần tự cho các thẻ */
+.the-bai-hat:nth-child(1) { animation-delay: 0.1s; }
+.the-bai-hat:nth-child(2) { animation-delay: 0.2s; }
+.the-bai-hat:nth-child(3) { animation-delay: 0.3s; }
+.the-bai-hat:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hiệu ứng xuất hiện từ dưới lên */
+@keyframes hieu-ung-xuat-hien {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hiệu ứng hover cho thẻ bài hát */
+.the-bai-hat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* Phần ảnh bài hát */
+.anh-bai-hat {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Lớp phủ gradient cho ảnh */
+.anh-bai-hat::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7));
+}
+
+.anh-bai-hat img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng zoom ảnh khi hover */
+.the-bai-hat:hover .anh-bai-hat img {
+    transform: scale(1.05);
+}
+
+/* Hiển thị khi không có ảnh */
+.khong-co-anh {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    font-size: 48px;
+}
+
+/* Thông tin bài hát */
+.thong-tin-bai-hat {
+    padding: 10px 0;
+}
+
+.thong-tin-bai-hat h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.thong-tin-bai-hat p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Nút phát */
+.nut-phat {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.nut-phat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Nút xóa (chỉ admin) */
+.delete-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
+    font-size: 14px;
+    opacity: 0.8;
+    z-index: 11;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.5);
+    opacity: 1;
+}
+
+.delete-btn:active {
+    transform: scale(0.95);
+}
+
+/* ===== PHẦN TRÌNH PHÁT NHẠC ===== */
+.trinh-phat-nhac {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    width: 350px;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.trinh-phat-nhac.hien-thi {
+    transform: translateX(0);
+}
+
+/* Phần đầu trình phát */
+.dau-trinh-phat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.dang-phat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+/* Ảnh bài hát trong trình phát */
+.dau-trinh-phat .anh-bai-hat {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dau-trinh-phat .anh-bai-hat img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Chi tiết bài hát */
+.chi-tiet-bai-hat {
+    text-align: center;
+    width: 100%;
+}
+
+.chi-tiet-bai-hat h3 {
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.chi-tiet-bai-hat p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Điều khiển trình phát */
+.dieu-khien {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+
+/* Thanh tiến trình */
+.thanh-tien-trinh {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.tien-trinh {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    border-radius: 3px;
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+#thanhTienTrinh {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Các nút điều khiển */
+.nut-dieu-khien {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.nut {
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nut:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.nut.nut-phat {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.nut.nut-phat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Điều khiển âm lượng */
+.dieu-khien-am-luong {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.dieu-khien-am-luong i {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+}
+
+#thanhAmLuong {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    outline: none;
+}
+
+#thanhAmLuong::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#thanhAmLuong::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #ff5252;
+}
+
+/* Nút điều khiển trình phát */
+.nut-dieu-khien-trinh-phat {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nut-dieu-khien-trinh-phat:hover {
+    background: rgba(255, 107, 107, 0.9);
+}
+
+.nut-dieu-khien-trinh-phat i {
+    transition: transform 0.3s ease;
+}
+
+.trinh-phat-nhac.hien-thi .nut-dieu-khien-trinh-phat i {
+    transform: rotate(180deg);
+}
+
+/* Nút thu nhỏ/mở rộng */
+.nut-thu-nho {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.nut-thu-nho:hover {
+    color: #ff6b6b;
+}
+
+/* Trạng thái thu nhỏ */
+.trinh-phat-nhac.thu-nho {
+    width: 80px;
+    padding: 10px;
+}
+
+.trinh-phat-nhac.thu-nho .dau-trinh-phat,
+.trinh-phat-nhac.thu-nho .dieu-khien {
+    display: none;
+}
+
+.trinh-phat-nhac.thu-nho .anh-bai-hat {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+/* Điều chỉnh danh sách bài hát khi trình phát hiển thị */
+.danh-sach-bai-hat.co-trinh-phat {
+    margin-right: 350px;
+    transition: margin-right 0.3s ease;
+}
+
+.danh-sach-bai-hat.co-trinh-phat.thu-nho {
+    margin-right: 80px;
+}
+
+/* ===== THIẾT KẾ RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .luoi-bai-hat {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .trinh-phat-nhac {
+        top: 70px;
+        width: 300px;
+    }
+
+    .danh-sach-bai-hat h1 {
+        font-size: 2rem;
+        letter-spacing: 4px;
+        padding-top: 15px;
+    }
+
+    .danh-sach-bai-hat.co-trinh-phat {
+        margin-right: 300px;
+    }
+
+    .danh-sach-bai-hat.co-trinh-phat.thu-nho {
+        margin-right: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+
+    .luoi-bai-hat {
+        grid-template-columns: 1fr;
+    }
+
+    .trinh-phat-nhac {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        height: 200px;
+        transform: translateY(100%);
+    }
+
+    .trinh-phat-nhac.hien-thi {
+        transform: translateY(0);
+    }
+
+    .dau-trinh-phat {
+        display: none;
+    }
+
+    .dieu-khien {
+        padding: 10px;
+    }
+
+    .nut-dieu-khien {
+        gap: 20px;
+    }
+
+    .nut.nut-phat {
+        width: 50px;
+        height: 50px;
+    }
+
+    .danh-sach-bai-hat h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        padding-top: 10px;
+    }
+
+    .danh-sach-bai-hat.co-trinh-phat {
+        margin-right: 0;
+    }
+
+    .trinh-phat-nhac.thu-nho {
+        width: 100%;
+        height: 60px;
+    }
+
+    .nut-dieu-khien-trinh-phat {
+        left: 50%;
+        top: -40px;
+        transform: translateX(-50%);
+        border-radius: 8px 8px 0 0;
+    }
+
+    .trinh-phat-nhac.hien-thi .nut-dieu-khien-trinh-phat i {
+        transform: rotate(0deg);
+    }
+}
+
+/* ===== THÔNG BÁO VÀ ALERT ===== */
+.alert {
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.alert-success {
+    background: rgba(46, 213, 115, 0.1);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+}
+
+.alert-error {
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    color: #e74c3c;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Thông báo floating */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 10000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(45deg, #2ed573, #26d466);
+    color: white;
+}
+
+.notification.error {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+/* Hiệu ứng xóa bài hát */
+.the-bai-hat.removing {
+    opacity: 0 !important;
+    transform: scale(0.8) !important;
+    transition: all 0.3s ease !important;
+}
