@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HL Music Footer</title>
-    <link rel="stylesheet" href="../assets/css/footer.css">
+    <?php
+    // Detect if we're being called from root or subdirectory
+    $is_root = (basename(dirname($_SERVER['SCRIPT_FILENAME'])) === basename($_SERVER['DOCUMENT_ROOT']) || 
+                basename(dirname($_SERVER['SCRIPT_FILENAME'])) === 'Doan1');
+    $base_path = $is_root ? './' : '../';
+    ?>
+    <link rel="stylesheet" href="<?php echo $base_path; ?>assets/css/footer.css">
 </head>
 
 <body>
@@ -20,10 +26,10 @@
             </div>
             <div class="support">
                 <ul>Liên Kết Nhanh</ul>
-                <li><a href="../index.php">Trang chủ</a></li>
-                <li><a href="../songs/song.php">Bài Hát</a></li>
-                <li><a href="../pages/about.php">Về Chúng Tôi</a></li>
-                <li><a href="../pages/support.php">Hỗ Trợ</a></li>
+                <li><a href="<?php echo $base_path; ?>index.php">Trang chủ</a></li>
+                <li><a href="<?php echo $base_path; ?>songs/song.php">Bài Hát</a></li>
+                <li><a href="<?php echo $base_path; ?>pages/about.php">Về Chúng Tôi</a></li>
+                <li><a href="<?php echo $base_path; ?>pages/support.php">Hỗ Trợ</a></li>
             </div>
             <div class="social">
                 <ul>Kết Nối</ul>

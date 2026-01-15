@@ -1,0 +1,20 @@
+# Uploads - không commit file nhạc và ảnh người dùng
+uploads/images/*
+uploads/music/*
+!uploads/images/.gitkeep
+!uploads/music/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Config (nếu có sensitive data)
+config/database.php
+.env
