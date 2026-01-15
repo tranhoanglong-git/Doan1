@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Về Chúng Tôi</title>
-    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
     <style>
     .about-container {
         max-width: 700px;
@@ -56,7 +56,7 @@
     </style>
 </head>
 <?php
-        include("header.php");
+        include("../includes/header.php");
     ?>
 <body>
     <div class="about-container">
@@ -72,7 +72,7 @@
     <p>Facebook: <a href="https://www.facebook.com/hoang.long.600641/" target="_blank">Trần Hoàng Long</a></p>
     </div>
     <?php
-        include("footer.php");
+        include("../includes/footer.php");
     ?>
 </body>
 </html>

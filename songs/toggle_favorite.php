@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php");
+require_once '../includes/config.php';
 
 // Kiểm tra đăng nhập
 if (!isset($_SESSION['user_id'])) {
@@ -61,4 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(['success' => false, 'message' => 'Phương thức không được hỗ trợ']);
 }
-?> 
+?>

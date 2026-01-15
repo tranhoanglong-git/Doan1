@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php");
+require_once '../includes/config.php';
 
 // Lấy danh sách bài hát đã duyệt từ database
 $sql = "SELECT * FROM songs WHERE status = 'approved' ORDER BY id DESC";
@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Bài Hát</title>
-    <link rel="stylesheet" href="./Css/song.css">
+    <link rel="stylesheet" href="../assets/css/song.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .the-bai-hat {
@@ -97,7 +97,7 @@ if (isset($_SESSION['user_id'])) {
     </style>
 </head>
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../includes/header.php"); ?>
     <div class="khung-chinh">
         <div class="danh-sach-bai-hat">
             <h1>Danh Sách Bài Hát</h1>
@@ -217,8 +217,8 @@ if (isset($_SESSION['user_id'])) {
     <!-- Thông báo -->
     <div id="notification" class="notification"></div>
 
-    <?php include("footer.php"); ?>
-    <script src="./js/song.js"></script>
+    <?php include("../includes/footer.php"); ?>
+    <script src="../assets/js/song.js"></script>
     <script>
         function toggleFavorite(songId, button) {
             const isFavorite = button.classList.contains('active');
@@ -264,4 +264,3 @@ if (isset($_SESSION['user_id'])) {
     </script>
 </body>
 </html>
-

@@ -1,16 +1,16 @@
 <?php
 session_start();
-require_once 'connect.php';
+require_once '../includes/config.php';
 
 // Kiểm tra đăng nhập và quyền admin
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
 // Kiểm tra quyền admin
 if ($_SESSION['username'] !== 'admin') {
-    header("Location: index.php?error=access_denied");
+    header("Location: ../index.php?error=access_denied");
     exit();
 }
 

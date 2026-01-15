@@ -1,16 +1,16 @@
 <?php
 session_start();
-require_once 'connect.php';
+require_once '../includes/config.php';
 
 // Kiểm tra đăng nhập và quyền admin
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
 // Kiểm tra quyền admin
 if ($_SESSION['username'] !== 'admin') {
-    header("Location: index.php?error=access_denied");
+    header("Location: ../index.php?error=access_denied");
     exit();
 }
 
@@ -95,11 +95,11 @@ $stats = $stats_result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Duyệt Bài Hát</title>
-    <link rel="stylesheet" href="./Css/style.css">
-    <link rel="stylesheet" href="./Css/admin_approval.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../includes/header.php"); ?>
     
     <div class="admin-container">
         <h1 style="text-align: center; color: #fff; margin-bottom: 30px; font-size: 2.5rem;">
@@ -240,7 +240,7 @@ $stats = $stats_result->fetch_assoc();
         </div>
     </div>
     
-    <?php include("footer.php"); ?>
+    <?php include("../includes/footer.php"); ?>
     
     <script>
         function approveSong(songId, songName) {

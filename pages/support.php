@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hỗ Trợ</title>
-    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <style>
 .support-container {
@@ -106,7 +106,7 @@
 </style>
 <body>
     <?php
-        include("header.php");
+        include("../includes/header.php");
         $success = false;
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
             // Ở đây bạn có thể xử lý lưu thông tin hoặc gửi email nếu muốn
@@ -138,7 +138,7 @@
         </div>
     </div>
     <?php
-        include("footer.php");
+        include("../includes/footer.php");
     ?>
 </body>
 

@@ -1,10 +1,10 @@
 <?php
 session_start();
-include("connect.php");
+require_once '../includes/config.php';
 
 // Kiểm tra đăng nhập
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
@@ -40,12 +40,12 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài Hát Yêu Thích - HL SOUND</title>
-    <link rel="stylesheet" href="./Css/song.css">
-    <link rel="stylesheet" href="./Css/favorites.css">
+    <link rel="stylesheet" href="../assets/css/song.css">
+    <link rel="stylesheet" href="../assets/css/favorites.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../includes/header.php"); ?>
     
     <div class="khung-chinh">
         <div class="danh-sach-bai-hat">
@@ -148,7 +148,7 @@ $result = $stmt->get_result();
         </div>
     </div>
 
-    <?php include("footer.php"); ?>
-    <script src="./js/song.js"></script>
+    <?php include("../includes/footer.php"); ?>
+    <script src="../assets/js/song.js"></script>
 </body>
-</html> 
+</html>

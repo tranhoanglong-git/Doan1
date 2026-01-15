@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connect.php';
+require_once '../includes/config.php';
 
 $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                header("Location: index.php");
+                header("Location: ../index.php");
                 exit();
             } else {
                 $error = "Mật khẩu không chính xác!";
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập - HL Music</title>
-    <link rel="stylesheet" href="./Css/login_register.css">
+    <link rel="stylesheet" href="../assets/css/login_register.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>

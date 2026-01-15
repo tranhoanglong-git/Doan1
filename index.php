@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HL SOUND - HoangLong Music</title>
-    <link rel="stylesheet" href="./Css/index.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
 </head>
     <?php
-        include("header.php");
+        include("includes/header.php");
     ?>
     
     
@@ -50,13 +50,13 @@
                 Trải nghiệm chất lượng âm thanh hoàn hảo và giao diện hiện đại.
             </p>
             <!-- Nút hành động -->
-            <a href="song.php" class="cta-button" onclick="createParticles()">Khám Phá Ngay</a>
+            <a href="songs/song.php" class="cta-button" onclick="createParticles()">Khám Phá Ngay</a>
         </div>
     </section>
     <?php
-        include("footer.php");
+        include("includes/footer.php");
     ?>
-    <script src="js/index.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>

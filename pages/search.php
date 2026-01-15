@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+require_once '../includes/config.php';
 
 // Lấy từ khóa tìm kiếm
 $search = isset($_GET['q']) ? trim($_GET['q']) : '';
@@ -23,9 +23,9 @@ if (!empty($search)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tìm kiếm - HL Music</title>
-    <link rel="stylesheet" href="./Css/style.css">
-    <link rel="stylesheet" href="./Css/header.css">
-    <link rel="stylesheet" href="./Css/song.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/song.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .ket-qua-tim-kiem {
@@ -55,7 +55,7 @@ if (!empty($search)) {
     </style>
 </head>
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../includes/header.php"); ?>
     
     <div class="main-content">
         <div class="container">
@@ -98,7 +98,7 @@ if (!empty($search)) {
         </div>
     </div>
 
-    <?php include("footer.php"); ?>
-    <script src="./js/song.js"></script>
+    <?php include("../includes/footer.php"); ?>
+    <script src="../assets/js/song.js"></script>
 </body>
-</html> 
+</html>

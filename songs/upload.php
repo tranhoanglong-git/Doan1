@@ -3,7 +3,7 @@ session_start();
 
 // Kiểm tra đăng nhập và quyền admin
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
@@ -58,11 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Tạo tên file mới để tránh trùng lặp
             $ten_file_moi_anh = uniqid() . '_' . time() . '.' . $dinh_dang_anh;
-            $duong_dan_anh = 'upload/images/' . $ten_file_moi_anh;
+            $duong_dan_anh = '../uploads/images/' . $ten_file_moi_anh;
 
             // Tạo thư mục nếu chưa tồn tại
-            if (!file_exists('upload/images/')) {
-                mkdir('upload/images/', 0777, true);
+            if (!file_exists('../uploads/images/')) {
+                mkdir('../uploads/images/', 0777, true);
             }
 
             // Di chuyển file ảnh
@@ -93,11 +93,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Tạo tên file mới
             $ten_file_moi_nhac = uniqid() . '_' . time() . '.' . $dinh_dang_nhac;
-            $duong_dan_nhac = 'upload/audio/' . $ten_file_moi_nhac;
+            $duong_dan_nhac = '../uploads/music/' . $ten_file_moi_nhac;
 
             // Tạo thư mục nếu chưa tồn tại
-            if (!file_exists('upload/audio/')) {
-                mkdir('upload/audio/', 0777, true);
+            if (!file_exists('../uploads/music/')) {
+                mkdir('../uploads/music/', 0777, true);
             }
 
             // Di chuyển file nhạc
@@ -142,11 +142,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Bài Hát</title>
-    <link rel="stylesheet" href="./Css/upload.css">
+    <link rel="stylesheet" href="../assets/css/upload.css">
 </head>
 
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../includes/header.php"); ?>
 
     <!-- Nội dung chính -->
     <div class="trang-upload">
@@ -262,8 +262,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 
-    <?php include("footer.php"); ?>
-    <script src="./js/upload.js"></script>
+    <?php include("../includes/footer.php"); ?>
+    <script src="../assets/js/upload.js"></script>
 </body>
 
 </html>
